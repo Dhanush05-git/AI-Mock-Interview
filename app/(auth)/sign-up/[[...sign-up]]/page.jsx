@@ -1,4 +1,3 @@
-// pages/sign-up.tsx
 import { SignUp } from "@clerk/nextjs";
 import Head from "next/head";
 

@@ -3,13 +3,12 @@
 import { UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import Lottie from 'lottie-react'
 import loadingAnimation from '@/public/lottie/loading.json'
-
-import { FaHome, FaClock } from 'react-icons/fa'
+import { FaHome, FaClock, FaBars, FaTimes } from 'react-icons/fa'
 
 const navItems = [
   { name: 'Dashboard', path: '/dashboard' },
@@ -18,11 +17,13 @@ const navItems = [
   { name: 'How it Works?', path: '/HIW' },
 ]
 
-function Upgrade() {
+export default function Upgrade() {
   const path = usePathname()
   const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [countdown, setCountdown] = useState(7)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const menuRef = useRef(null)
 
   useEffect(() => {
     const loadingTimer = setTimeout(() => setLoading(false), 1900)
@@ -40,24 +41,41 @@ function Upgrade() {
     }
   }, [loading, countdown, router])
 
+  // Close mobile menu on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [mobileMenuOpen])
+
   return (
     <>
       <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          {/* Left: Logo */}
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 sm:px-6">
+          {/* Logo */}
           <div className="flex-shrink-0">
             <Image
               src="/logo.svg"
               alt="Logo"
-              width={160}
-              height={80}
+              width={140}
+              height={70}
               priority
               className="object-contain"
             />
           </div>
 
-          {/* Center: Navigation */}
-          <nav className="hidden md:flex gap-10 text-[15px] font-medium">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex gap-8 text-[15px] font-medium">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -73,14 +91,57 @@ function Upgrade() {
             ))}
           </nav>
 
-          {/* Right: User button */}
-          <div className="flex-shrink-0 scale-110">
+          {/* Mobile Menu Toggle */}
+          <div className="flex md:hidden items-center gap-3">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-2xl text-gray-700 focus:outline-none"
+              aria-label="Toggle navigation"
+            >
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
+
+          {/* UserButton for desktop */}
+          <div className="hidden md:block scale-110">
             <UserButton afterSignOutUrl="/" />
           </div>
         </div>
+
+        {/* Mobile Dropdown */}
+        <div ref={menuRef}>
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden px-4 pb-4 space-y-3 text-sm"
+              >
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block py-1 border-b ${
+                      path === item.path ? 'text-indigo-600 font-semibold' : 'text-gray-700'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <div className="pt-3">
+                  <UserButton afterSignOutUrl="/" />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </header>
 
-      <main className="flex justify-center items-center h-[75vh] px-6 text-center">
+      {/* Main */}
+      <main className="flex justify-center items-center min-h-[75vh] px-4 text-center">
         <AnimatePresence mode="wait">
           {loading ? (
             <motion.div
@@ -114,7 +175,7 @@ function Upgrade() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3"
+                className="text-3xl sm:text-4xl font-bold text-gray-800 flex items-center justify-center gap-3"
               >
                 💵 Premium Option Coming Soon
               </motion.h2>
@@ -127,15 +188,15 @@ function Upgrade() {
               >
                 <FaClock className="text-indigo-500 animate-pulse" />
                 Redirecting to the Dashboard in{' '}
-                <span className="font-semibold text-indigo-600">{countdown}</span> second
-                {countdown !== 1 && 's'}...
+                <span className="font-semibold text-indigo-600">{countdown}</span>{' '}
+                second{countdown !== 1 && 's'}...
               </motion.p>
 
               <motion.button
                 whileHover={{ scale: 1.07 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => router.push('/dashboard')}
-                className="bg-indigo-600 cursor-pointer hover:bg-indigo-700 text-white px-6 py-3 rounded-xl text-base font-semibold transition-all shadow-md inline-flex items-center gap-2 justify-center"
+                className="bg-indigo-600 hover:bg-indigo-700 cursor-pointer text-white px-6 py-3 rounded-xl text-base font-semibold transition-all shadow-md inline-flex items-center gap-2 justify-center"
               >
                 <FaHome />
                 Go to Dashboard Now
@@ -147,5 +208,3 @@ function Upgrade() {
     </>
   )
 }
-
-export default Upgrade

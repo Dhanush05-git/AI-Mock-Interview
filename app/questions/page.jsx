@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import Lottie from 'lottie-react'
 import loadingAnimation from '@/public/lottie/loading.json'
-import {  FaClock, FaHome } from 'react-icons/fa'
+import { FaClock, FaHome, FaBars } from 'react-icons/fa'
 
 const navItems = [
   { name: 'Dashboard', path: '/dashboard' },
@@ -21,7 +21,8 @@ function QuestionPage() {
   const path = usePathname()
   const router = useRouter()
   const [loading, setLoading] = useState(true)
-  const [countdown, setCountdown] = useState(7) // 10s total - 3s loading = 7s countdown
+  const [countdown, setCountdown] = useState(7)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const loadingTimer = setTimeout(() => setLoading(false), 1900)
@@ -41,22 +42,38 @@ function QuestionPage() {
 
   return (
     <>
+      {/* Header */}
       <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          {/* Left: Logo */}
-          <div className="flex-shrink-0">
+        <div className="max-w-7xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between px-4 sm:px-6 py-3">
+          {/* Logo */}
+          <Link href="/">
             <Image
               src="/logo.svg"
               alt="Logo"
-              width={160}
-              height={80}
-              priority
+              width={150}
+              height={60}
               className="object-contain"
+              priority
             />
+          </Link>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center justify-between w-full mt-2">
+            <button
+              className="text-gray-600 text-xl"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+            >
+              <FaBars />
+            </button>
+            <UserButton afterSignOutUrl="/" />
           </div>
 
-          {/* Center: Navigation */}
-          <nav className="hidden md:flex gap-10 text-[15px] font-medium">
+          {/* Nav Items */}
+          <nav
+            className={`${
+              mobileMenuOpen ? 'flex' : 'hidden'
+            } flex-col md:flex md:flex-row gap-5 md:gap-10 w-full md:w-auto text-[15px] font-medium mt-3 md:mt-0`}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -72,14 +89,15 @@ function QuestionPage() {
             ))}
           </nav>
 
-          {/* Right: User button */}
-          <div className="flex-shrink-0 scale-110">
+          {/* Desktop user button */}
+          <div className="hidden md:block flex-shrink-0 scale-110">
             <UserButton afterSignOutUrl="/" />
           </div>
         </div>
       </header>
 
-      <main className="flex justify-center items-center h-[75vh] px-6 text-center">
+      {/* Main */}
+      <main className="flex justify-center items-center min-h-[70vh] px-4 text-center">
         <AnimatePresence mode="wait">
           {loading ? (
             <motion.div
@@ -95,7 +113,7 @@ function QuestionPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg text-gray-600"
+                className="text-base sm:text-lg text-gray-600"
               >
                 Getting your Questions ready...
               </motion.p>
@@ -113,9 +131,8 @@ function QuestionPage() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3"
+                className="text-2xl sm:text-4xl font-bold text-gray-800 flex items-center justify-center gap-3"
               >
-                
                 🤖 Questions Page Coming Soon
               </motion.h2>
 
@@ -123,7 +140,7 @@ function QuestionPage() {
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-gray-600 text-lg flex items-center justify-center gap-2"
+                className="text-gray-600 text-base sm:text-lg flex items-center justify-center gap-2"
               >
                 <FaClock className="text-indigo-500 animate-pulse" />
                 Redirecting to the Dashboard in{' '}
@@ -135,7 +152,7 @@ function QuestionPage() {
                 whileHover={{ scale: 1.07 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => router.push('/dashboard')}
-                className="bg-indigo-600 cursor-pointer hover:bg-indigo-700 text-white px-6 py-3 rounded-xl text-base font-semibold transition-all shadow-md inline-flex items-center gap-2 justify-center mx-auto"
+                className="bg-indigo-600 hover:bg-indigo-700 cursor-pointer text-white px-6 py-3 rounded-xl text-sm sm:text-base font-semibold transition-all shadow-md inline-flex items-center gap-2 justify-center"
               >
                 <FaHome />
                 Go to Dashboard Now

@@ -458,65 +458,87 @@ function RecordAnsSection({
 
       {/* Recording buttons */}
       <div className="w-full flex justify-center gap-4 my-4 flex-wrap">
-        {hasSavedAnswer ? (
-          <>
-            <Button
-              className="flex items-center gap-2 cursor-pointer  bg-yellow-500 hover:bg-yellow-600"
-              onClick={confirmAndClearAnswer}
-              disabled={loading}
-            >
-              <X className="w-4 h-4" />
-              Clear Response
-            </Button>
+  {hasSavedAnswer ? (
+    <>
+      <Button
+        className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600"
+        onClick={(e) => {
+          e.preventDefault()
+          confirmAndClearAnswer()
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault()
+          confirmAndClearAnswer()
+        }}
+        disabled={loading}
+      >
+        <X className="w-4 h-4" />
+        Clear Response
+      </Button>
 
-            <Button
-              disabled={loading}
-              className="flex items-center cursor-pointer gap-2"
-              onClick={startStopUpdateRecording}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="animate-spin w-4 h-4" />
-                  Saving...
-                </>
-              ) : isUpdatingRecording ? (
-                <>
-                  <StopCircle className="text-red-600" />
-                  Stop Update
-                </>
-              ) : (
-                <>
-                  <Mic />
-                  Update Answer
-                </>
-              )}
-            </Button>
+      <Button
+        className="flex items-center gap-2"
+        onClick={(e) => {
+          e.preventDefault()
+          startStopUpdateRecording()
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault()
+          startStopUpdateRecording()
+        }}
+        disabled={loading}
+      >
+        {loading ? (
+          <>
+            <Loader2 className="animate-spin w-4 h-4" />
+            Saving...
+          </>
+        ) : isUpdatingRecording ? (
+          <>
+            <StopCircle className="text-red-600" />
+            Stop Update
           </>
         ) : (
-          <Button
-            disabled={loading}
-            className="flex items-center cursor-pointer gap-2"
-            onClick={startStopRecording}
-          >
-            {loading ? (
-              <>
-                <Loader2 className="animate-spin w-4 h-4" />
-                Saving...
-              </>
-            ) : isRecording ? (
-              <>
-                <StopCircle className="text-red-600 cursor-pointer" />
-                Stop Recording
-              </>
-            ) : (
-              <>
-                <Mic />
-                Record Answer
-              </>
-            )}
-          </Button>
+          <>
+            <Mic />
+            Update Answer
+          </>
         )}
-      </div>
+      </Button>
+    </>
+  ) : (
+    <Button
+      className="flex items-center gap-2"
+      onClick={(e) => {
+        e.preventDefault()
+        startStopRecording()
+      }}
+      onTouchEnd={(e) => {
+        e.preventDefault()
+        startStopRecording()
+      }}
+      disabled={loading}
+    >
+      {loading ? (
+        <>
+          <Loader2 className="animate-spin w-4 h-4" />
+          Saving...
+        </>
+      ) : isRecording ? (
+        <>
+          <StopCircle className="text-red-600" />
+          Stop Recording
+        </>
+      ) : (
+        <>
+          <Mic />
+          Record Answer
+        </>
+      )}
+    </Button>
+  )}
+</div>
+
 
      <AnimatePresence>
         {showSavedText && (
