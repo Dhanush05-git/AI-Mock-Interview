@@ -76,8 +76,15 @@ function AddNewInterview() {
     const questionCount = process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT
     const InputPrompt = `Job Position: ${JobPosition}, Job Description: ${JobDescription}, Years of Experience: ${YearsOfExperience}. Based on this information, give me ${questionCount} interview questions with answers in JSON format.`;
     const result = await chatSession.sendMessage(InputPrompt)
-    const text = await result.response.text()
-const MockjsonResponse = text.replace('\njson', '').replace('\n', '')
+    const rawText = await result.response.text()
+    const  MockjsonResponse = rawText
+        .replace(/^```json\s*/i, '')  // remove ```json (case-insensitive)
+        .replace(/^```/, '')          // edge case: if there's just ```
+        .replace(/```$/, '')          // remove trailing ```
+        .trim()
+
+    
+
 
     let parsedJson
     try {
