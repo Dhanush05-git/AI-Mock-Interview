@@ -54,10 +54,10 @@ function AddNewInterview() {
     }
     setSuggesting(true)
     try {
-      const prompt = `Based on this job description, suggest a suitable job title:\n\n${JobDescription}`
+      const prompt = Based on this job description, suggest a suitable job title:\n\n${JobDescription}
       const result = await chatSession.sendMessage(prompt)
       const title = await result.response.text()
-      alert("🤖 Suggested Title:\n\n\"" + title.trim() + "\"")
+      alert(🤖 Suggested Title:\n\n"${title.trim()}")
     } catch (error) {
       console.error("Suggest failed:", error)
       alert("❌ AI failed to suggest. Try again later.")
@@ -74,17 +74,12 @@ function AddNewInterview() {
     setLoading(true)
 
     const questionCount = process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT
-    const InputPrompt = `Job Position: ${JobPosition}, Job Description: ${JobDescription}, Years of Experience: ${YearsOfExperience}. Based on this information, give me ${questionCount} interview questions with answers in JSON format.`;
+    const InputPrompt = Job Position: ${JobPosition}, Job Description: ${JobDescription}, Years of Experience: ${YearsOfExperience}. Based on this information, give me ${questionCount} interview questions with answers in JSON format.
     const result = await chatSession.sendMessage(InputPrompt)
-    const rawText = await result.response.text()
-    const  MockjsonResponse = rawText
-        .replace(/^```json\s*/i, '')  // remove ```json (case-insensitive)
-        .replace(/^```/, '')          // edge case: if there's just ```
-        .replace(/```$/, '')          // remove trailing ```
-        .trim()
-
-    
-
+    const text = await result.response.text()
+    const MockjsonResponse = text.replace('
+json', '').replace('
+', '')
 
     let parsedJson
     try {
@@ -110,7 +105,7 @@ function AddNewInterview() {
     if (resp) {
       localStorage.clear()
       setOpenDialog(false)
-      router.push(`/dashboard/interview/${resp[0]?.mockId}`)
+      router.push(/dashboard/interview/${resp[0]?.mockId})
     }
 
     setLoading(false)
