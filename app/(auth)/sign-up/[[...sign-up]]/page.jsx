@@ -1,3 +1,4 @@
+// pages/sign-up.tsx
 import { SignUp } from "@clerk/nextjs";
 import Head from "next/head";
 
@@ -23,10 +24,15 @@ export default function SignUpPage() {
         </div>
 
         {/* Right side with sign-up form */}
-        <div className="flex w-full md:w-9/20 justify-center items-center px-4">
+        <div className="flex w-full md:w-9/20 justify-center items-center px-4 bg-gray-50">
           <div className="max-w-md w-full">
+            
+            {/* Mobile-only welcome message */}
+            <div className="block md:hidden text-center mb-6 text-xl font-semibold text-gray-700">
+              Join AI Interview Mocker <span className="animate-custom-bounce">🚀</span>
+            </div>
+            
             <SignUp path="/sign-up" routing="path" />
-          
           </div>
         </div>
       </div>
