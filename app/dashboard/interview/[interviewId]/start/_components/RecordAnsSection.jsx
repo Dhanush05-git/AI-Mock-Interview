@@ -242,8 +242,6 @@ function RecordAnsSection({
     try {
       const result = await chatSession.sendMessage(prompt);
       const textResponse = await result.response.text();
-
-      console.log(textResponse);
   
       const cleaned = textResponse.replace(/```json|```/g, "").trim();
       const feedback = JSON.parse(cleaned);
