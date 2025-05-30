@@ -77,7 +77,7 @@ function AddNewInterview() {
     const InputPrompt = `Job Position: ${JobPosition}, Job Description: ${JobDescription}, Years of Experience: ${YearsOfExperience}. Based on this information, give me ${questionCount} interview questions with answers in JSON format.`;
     const result = await chatSession.sendMessage(InputPrompt)
     const text = await result.response.text()
-const MockjsonResponse = text.replace('\njson', '').replace('\n', '')
+const MockjsonResponse = text.replace('```json', '').replace('```', '')
 console.log(text)
 
     let parsedJson
