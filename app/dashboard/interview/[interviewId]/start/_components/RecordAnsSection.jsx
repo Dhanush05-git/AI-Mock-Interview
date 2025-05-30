@@ -242,10 +242,12 @@ function RecordAnsSection({
     try {
       const result = await chatSession.sendMessage(prompt);
       const textResponse = await result.response.text();
-      const cleaned = textResponse.replace(/```json|```/g, "").trim();
-      const feedback = JSON.parse(cleaned);
+
       console.log(textResponse);
   
+      const cleaned = textResponse.replace(/```json|```/g, "").trim();
+      const feedback = JSON.parse(cleaned);
+      
       // Check if answer already exists for this user, mockId, and question
       const existingAnswer = await db
         .select()
