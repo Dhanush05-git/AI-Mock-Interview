@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { db } from '@/utils/db';
-import { UserAnswer, MockInterview } from '@/utils/schema'; // import MockInterview if needed
+import { UserAnswer, MockInterview } from '@/utils/schema';
 import { eq } from 'drizzle-orm';
 import { Button } from '@/components/ui/button';
 import { Loader2, PlayCircle, RotateCcw, MessageCircle, X } from 'lucide-react';
@@ -62,16 +62,10 @@ function InterviewItemCard({ interview, onDelete }) {
     setDeleting(true);
 
     try {
-      // Delete answers related to this interview (mockId)
       await db.delete(UserAnswer).where(eq(UserAnswer.mockIdRef, interview?.mockId));
-
-      // Delete the interview itself by id
       await db.delete(MockInterview).where(eq(MockInterview.id, interview.id));
-
-      // Clear localStorage cache
       localStorage.removeItem(`feedback-${interview?.mockId}`);
 
-      // Inform parent to remove from UI list
       if (onDelete) onDelete(interview.id);
     } catch (error) {
       console.error('Failed to delete interview:', error);
@@ -100,28 +94,31 @@ function InterviewItemCard({ interview, onDelete }) {
       </button>
 
       <div className="space-y-1">
-        <h2 className="font-bold text-primary text-lg">{interview?.jobPosition}</h2>
+        <h2 className="font-bold text-primary text-lg truncate">{interview?.jobPosition}</h2>
         <p className="text-sm text-gray-500">{interview?.jobExperience} Years of Experience</p>
         <p className="text-xs text-gray-400">Created At: {interview?.createdAt}</p>
       </div>
 
-      <div className="flex justify-between mt-4 gap-3 items-center">
+      <div className="flex flex-wrap justify-between mt-4 gap-3 items-center">
         <Button
           variant="outline"
           size="sm"
           onClick={navigateToFeedback}
-          className="gap-2 text-blue-600 hover:text-blue-700 border-blue-200 cursor-pointer"
+          className="gap-2 text-blue-600 hover:text-blue-700 border-blue-200 cursor-pointer whitespace-nowrap"
         >
           <MessageCircle className="w-4 h-4 cursor-pointer" />
           Feedback
         </Button>
 
-        <motion.div whileTap={{ scale: 0.95 }} className="w-full md:w-auto flex justify-end">
+        <motion.div
+          whileTap={{ scale: 0.95 }}
+          className="flex justify-end w-full sm:w-auto"
+        >
           <Button
             size="sm"
-            className="w-36 gap-2 bg-pink-500 text-white hover:bg-pink-600 cursor-pointer"
             onClick={navigateToInterview}
             disabled={checkingFeedback}
+            className="gap-2 bg-pink-500 text-white hover:bg-pink-600 cursor-pointer max-w-full sm:w-auto truncate"
           >
             {checkingFeedback ? (
               <>
@@ -131,12 +128,12 @@ function InterviewItemCard({ interview, onDelete }) {
             ) : hasFeedback ? (
               <>
                 <RotateCcw className="h-4 w-4" />
-                Get Back
+                <span className="truncate max-w-[6rem] sm:max-w-none">Get Back</span>
               </>
             ) : (
               <>
                 <PlayCircle className="h-4 w-4" />
-                Start
+                <span className="truncate max-w-[6rem] sm:max-w-none">Start</span>
               </>
             )}
           </Button>
