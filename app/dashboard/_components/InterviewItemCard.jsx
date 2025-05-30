@@ -119,7 +119,7 @@ function InterviewItemCard({ interview, onDelete }) {
         <motion.div whileTap={{ scale: 0.95 }} className="w-full md:w-auto flex justify-end">
           <Button
             size="sm"
-            className="w-36 gap-2 bg-pink-500 text-white hover:bg-pink-600 cursor-pointer"
+            className="w-30 gap-2 bg-pink-500 text-white hover:bg-pink-600 cursor-pointer"
             onClick={navigateToInterview}
             disabled={checkingFeedback}
           >
@@ -130,12 +130,12 @@ function InterviewItemCard({ interview, onDelete }) {
               </>
             ) : hasFeedback ? (
               <>
-                <RotateCcw className="h-4 w-3" />
+                <RotateCcw className="h-4 w-4" />
                 Get Back
               </>
             ) : (
               <>
-                <PlayCircle className="h-4 w-3" />
+                <PlayCircle className="h-4 w-4" />
                 Start
               </>
             )}
