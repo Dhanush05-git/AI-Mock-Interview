@@ -42,15 +42,6 @@ function RecordAnsSection({
     return stored ? parseInt(stored, 10) : 0;
   });
   
-  const handleRecordClick = (action) => (e) => {
-    e.preventDefault();
-    if (e.type === "touchend") {
-      if (action === "record") startStopRecording();
-      if (action === "update") startStopUpdateRecording();
-      if (action === "clear") confirmAndClearAnswer();
-    }
-  };
-  
 
 
   // State for update answer recording
@@ -354,10 +345,6 @@ function RecordAnsSection({
   };
 
   return (
-   
-    
-    
-    
     <div className="flex flex-col items-center w-full px-4 max-w-2xl mx-auto">
            
 
@@ -412,13 +399,6 @@ function RecordAnsSection({
             </>
           )}
         </motion.button>
-
-        {typeof window !== "undefined" &&
-      !("webkitSpeechRecognition" in window || "SpeechRecognition" in window) && (
-        <div className="text-sm text-red-600 mt-2">
-          Voice recognition is not supported on this device. Please use a modern browser like Chrome.
-        </div>
-    )}
 
         <Button
           onClick={toggleSavedText}
@@ -482,8 +462,14 @@ function RecordAnsSection({
     <>
       <Button
         className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600"
-        onClick={() => handleRecordClick("clear")}
-onTouchEnd={() => handleRecordClick("clear")}
+        onClick={(e) => {
+          e.preventDefault()
+          confirmAndClearAnswer()
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault()
+          confirmAndClearAnswer()
+        }}
         disabled={loading}
       >
         <X className="w-4 h-4" />
@@ -492,9 +478,14 @@ onTouchEnd={() => handleRecordClick("clear")}
 
       <Button
         className="flex items-center gap-2"
-        onClick={() => handleRecordClick("update")}
-onTouchEnd={() => handleRecordClick("update")}
-        
+        onClick={(e) => {
+          e.preventDefault()
+          startStopUpdateRecording()
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault()
+          startStopUpdateRecording()
+        }}
         disabled={loading}
       >
         {loading ? (
@@ -518,9 +509,14 @@ onTouchEnd={() => handleRecordClick("update")}
   ) : (
     <Button
       className="flex items-center gap-2"
-      onClick={() => handleRecordClick("record")}
-onTouchEnd={() => handleRecordClick("record")}
-
+      onClick={(e) => {
+        e.preventDefault()
+        startStopRecording()
+      }}
+      onTouchEnd={(e) => {
+        e.preventDefault()
+        startStopRecording()
+      }}
       disabled={loading}
     >
       {loading ? (
