@@ -1,3 +1,5 @@
+'use client';
+
 import { SignIn } from "@clerk/nextjs";
 import Head from "next/head";
 import { motion } from "framer-motion";
@@ -10,7 +12,7 @@ export default function SignInPage() {
       </Head>
 
       <div className="flex flex-col md:flex-row h-screen w-full bg-gray-100 overflow-hidden">
-        {/* Left Panel - Welcome Section */}
+        {/* Left Panel */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -28,7 +30,7 @@ export default function SignInPage() {
           </div>
         </motion.div>
 
-        {/* Right Panel - Sign In Form */}
+        {/* Right Panel */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
