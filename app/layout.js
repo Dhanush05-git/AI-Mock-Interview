@@ -24,9 +24,11 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning
-      >
+    <body
+  className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+  suppressHydrationWarning
+>
+
         <Toaster/>
         {children}
         <SpeedInsights />
@@ -35,4 +37,4 @@ export default function RootLayout({ children }) {
     </html>
     </ClerkProvider>
   );
-}
+},
