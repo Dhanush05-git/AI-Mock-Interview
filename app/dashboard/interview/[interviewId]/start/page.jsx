@@ -23,8 +23,8 @@ function StartInterview({ params }) {
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
   const [webcamEnabled, setWebcamEnabled] = useState(true);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-  const router = useRouter();
   const [attemptedQuestions, setAttemptedQuestions] = useState(new Set());
+  const router = useRouter();
 
   useEffect(() => {
     GetInterviewDetails();
@@ -56,18 +56,14 @@ function StartInterview({ params }) {
 
   const isLastQuestion = activeQuestionIndex === mockInterviewQuestions.length - 1;
 
-  // Number of attempted questions
-  const attemptedCount = attemptedQuestions.size;
-  const totalQuestions = mockInterviewQuestions.length;
-
   return (
-    <div className="p-5 md:p-5 min-h-screen">
+    <div className="px-4 py-6 md:px-8 min-h-screen bg-gray-50">
       {/* Navigation Buttons */}
-      <div className="flex flex-wrap justify-center gap-5 ">
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
         <Button
           onClick={() => setActiveQuestionIndex((prev) => prev - 1)}
           disabled={activeQuestionIndex === 0}
-          className="w-full sm:w-auto cursor-pointer"
+          className="w-full sm:w-auto"
         >
           Previous
         </Button>
@@ -76,19 +72,18 @@ function StartInterview({ params }) {
           <Button
             onClick={() => setActiveQuestionIndex((prev) => prev + 1)}
             disabled={activeQuestionIndex === mockInterviewQuestions.length - 1}
-            className="w-full sm:w-auto cursor-pointer"
+            className="w-full sm:w-auto"
           >
             Next
           </Button>
         )}
 
-        {/* End Interview only shown on last question */}
         {isLastQuestion && (
           <Dialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
             <DialogTrigger asChild>
               <Button
                 variant="destructive"
-                className="w-full sm:w-auto cursor-pointer"
+                className="w-full sm:w-auto"
                 onClick={() => setShowConfirmDialog(true)}
               >
                 End Interview
@@ -98,16 +93,14 @@ function StartInterview({ params }) {
               <DialogHeader>
                 <DialogTitle>End Interview?</DialogTitle>
                 <DialogDescription>
-                Are you sure you’d like to conclude the interview? Once confirmed, you’ll proceed to the feedback page to reflect on your responses.
-              </DialogDescription>
-
-
+                  Are you sure you’d like to conclude the interview? Once confirmed, you’ll proceed to the feedback page to reflect on your responses.
+                </DialogDescription>
               </DialogHeader>
               <DialogFooter className="flex justify-end gap-3 mt-6">
-                <Button variant="ghost" className="cursor-pointer" onClick={() => setShowConfirmDialog(false)}>
+                <Button variant="ghost" onClick={() => setShowConfirmDialog(false)}>
                   Cancel
                 </Button>
-                <Button variant="destructive" className="cursor-pointer" onClick={handleConfirmEnd}>
+                <Button variant="destructive" onClick={handleConfirmEnd}>
                   Confirm & End
                 </Button>
               </DialogFooter>
@@ -116,9 +109,9 @@ function StartInterview({ params }) {
         )}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-5">
-        {/* Video/Audio Section */}
-        <div className="rounded-2xl border border-gray-200 bg-white shadow-md p-6 transition hover:shadow-lg">
+      {/* Main Content Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-4 sm:p-6 transition hover:shadow-md">
           <RecordAnsSection
             mockInterviewQuestions={mockInterviewQuestions}
             activeQuestionIndex={activeQuestionIndex}
@@ -130,9 +123,8 @@ function StartInterview({ params }) {
           />
         </div>
 
-        {/* Question Section */}
         {mockInterviewQuestions.length > 0 && (
-          <div className="rounded-2xl border border-gray-200 bg-white shadow-md p-6 transition hover:shadow-lg">
+          <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-4 sm:p-6 transition hover:shadow-md">
             <Questionsection
               mockInterviewQuestions={mockInterviewQuestions}
               activeQuestionIndex={activeQuestionIndex}
