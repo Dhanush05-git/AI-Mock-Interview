@@ -130,12 +130,12 @@ function InterviewItemCard({ interview, onDelete }) {
               </>
             ) : hasFeedback ? (
               <>
-                <RotateCcw className="h-4 w-4" />
+                <RotateCcw className="h-4 w-3" />
                 Get Back
               </>
             ) : (
               <>
-                <PlayCircle className="h-4 w-4" />
+                <PlayCircle className="h-4 w-3" />
                 Start
               </>
             )}
