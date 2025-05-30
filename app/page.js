@@ -57,7 +57,7 @@ export default function Home() {
             animation: "fadeInOut 1s ease-in-out infinite",
           }}
         >
-          Loading...
+          Loading... and
         </p>
       </div>
     </>
