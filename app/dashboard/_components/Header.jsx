@@ -25,7 +25,7 @@ function Header() {
           <Link href="/">
            
               <Image
-                src="/logo.svg"
+                src="/l/Users/dhanushgundu/Downloads/logo.svg"
                 alt="Logo"
                 width={100}
                 height={50}
