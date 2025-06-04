@@ -25,9 +25,9 @@ function Header() {
           <Link href="/">
            
               <Image
-                src="/l/Users/dhanushgundu/Downloads/logo.svg"
+                src="/logo.svg"
                 alt="Logo"
-                width={50}
+                width={100}
                 height={50}
                 priority
                 className="object-contain"
