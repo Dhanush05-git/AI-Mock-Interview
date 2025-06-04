@@ -22,19 +22,19 @@ function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
         {/* Left: Logo */}
         <div className="flex-shrink-0">
-          <Link href="/">
-           
-              <Image
-                src="/logo.svg"
-                alt="Logo"
-                width={90}
-                height={80}
-                priority
-                className="object-contain"
-              />
-            
-          </Link>
-        </div>
+                        <Link href="/">
+                         
+                            <Image
+                              src="/logo.svg"
+                              alt="Logo"
+                              width={160}
+                              height={80}
+                              priority
+                              className="object-contain"
+                            />
+                          
+                        </Link>
+                      </div>
 
         {/* Center: Navigation - Desktop */}
         <nav className="hidden md:flex gap-10 text-[15px] font-medium">
