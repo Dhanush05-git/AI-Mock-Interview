@@ -27,8 +27,8 @@ function Header() {
               <Image
                 src="/logo.svg"
                 alt="Logo"
-                width={160}
-                height={80}
+                width={100}
+                height={50}
                 priority
                 className="object-contain"
               />
