@@ -2,7 +2,7 @@
 
 A full-stack web application that simulates technical mock interviews using AI. Users receive dynamic interview questions, record their answers by voice, and get instant AI-generated feedback — all within a modern, responsive interface.
 
-<a href="https://ai-mock-interview-rosy.vercel.app" target="_blank">🔗 Live Demo</a> &nbsp | &nbsp; [📂 GitHub Repo](https://github.com/Dhanush05-git/AI-Mock-Interview)
+[🔗 Live Demo](https://ai-mock-interview-rosy.vercel.app) &nbsp;| &nbsp; [📂 GitHub Repo](https://github.com/Dhanush05-git/AI-Mock-Interview)
 
 ---
 
