@@ -59,6 +59,7 @@ A full-stack web application that simulates technical mock interviews using AI. 
 🙋‍♂️ Author
 
 Made with ❤️ by Dhanush Gundu
+
 📍 NIT Patna | B.Tech CSE | Web Developer & Cybersecurity Enthusiast
 
 [![GitHub](https://img.shields.io/badge/GitHub-Dhanush05--git-black?style=flat&logo=github)](https://github.com/Dhanush05-git) • [![LinkedIn](https://img.shields.io/badge/LinkedIn-dhanushgundu-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/dhanushgundu)
