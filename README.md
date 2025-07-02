@@ -41,16 +41,17 @@ A full-stack web application that simulates technical mock interviews using AI. 
 <img width="1512" alt="Screenshot 2025-07-02 at 11 52 30 AM" src="https://github.com/user-attachments/assets/ac92e032-91ec-49ca-9517-21d3ffaec1f1" />
  -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 12 09 09 PM" src="https://github.com/user-attachments/assets/b5a17882-fc72-4513-adf4-a0b14bf376f7" />
-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1465" alt="Screenshot 2025-07-02 at 11 54 51 AM" src="https://github.com/user-attachments/assets/1f6dd453-95e9-4c5a-9379-62a508733229" />
-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 11 55 37 AM" src="https://github.com/user-attachments/assets/a8b28baf-7bfd-4d2d-bc9a-0b81476ea5cf" />
-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 11 56 41 AM" src="https://github.com/user-attachments/assets/cc3a2557-28be-4259-8269-96bc18bd3dcf" />
-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 11 56 54 AM" src="https://github.com/user-attachments/assets/05a719b5-03c5-4f7c-b938-68a88f59f5a0" />
-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 12 03 22 PM" src="https://github.com/user-attachments/assets/d78c18ff-5935-4497-9bef-2cfc2c9ef81a" />
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 12 04 33 PM" src="https://github.com/user-attachments/assets/123e15c0-2fbc-4069-a658-c34393d6b688" />
 
 ---
