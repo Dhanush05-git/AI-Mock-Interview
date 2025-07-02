@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🤖 AI Mock Interview Platform
 
-## Getting Started
+A full-stack web application that simulates technical mock interviews using AI. Users receive dynamic interview questions, record their answers by voice, and get instant AI-generated feedback — all within a modern, responsive interface.
 
-First, run the development server:
+[🔗 Live Demo](https://ai-mock-interview-rosy.vercel.app) &nbsp; | &nbsp; [📂 GitHub Repo](https://github.com/Dhanush05-git/AI-Mock-Interview)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ 🚀 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 🎤 Voice Input: Record your spoken answers using browser mic access.
+- 🧠 AI-Generated Questions: Questions are dynamically generated using the Gemini API.
+- 📊 Instant Feedback: Get intelligent, automated feedback based on your answers.
+- 🔐 User Authentication: Secure login system powered by Clerk.
+- 🧾 Answer History: Save and view previously answered questions.
+- 📱 Responsive Design: Fully functional across devices with clean UI.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+  Frontend:
+- [Next.js](https://nextjs.org/) + [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- Browser APIs (Speech Recognition)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  Backend:
+- [Node.js](https://nodejs.org/) + [Drizzle ORM](https://orm.drizzle.team/)
+- [PostgreSQL](https://www.postgresql.org/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  Integrations:
+- [Gemini API (Google)](https://deepmind.google/technologies/gemini/)
+- [Clerk Auth](https://clerk.com/) – Authentication & user management
+- [Vercel](https://vercel.com/) – Deployment
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📸 Screenshots
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+<img width="1512" alt="Screenshot 2025-07-02 at 11 52 30 AM" src="https://github.com/user-attachments/assets/ac92e032-91ec-49ca-9517-21d3ffaec1f1" />
+
+<img width="1512" alt="Screenshot 2025-07-02 at 12 09 09 PM" src="https://github.com/user-attachments/assets/b5a17882-fc72-4513-adf4-a0b14bf376f7" />
+
+<img width="1465" alt="Screenshot 2025-07-02 at 11 54 51 AM" src="https://github.com/user-attachments/assets/1f6dd453-95e9-4c5a-9379-62a508733229" />
+
+<img width="1512" alt="Screenshot 2025-07-02 at 11 55 37 AM" src="https://github.com/user-attachments/assets/a8b28baf-7bfd-4d2d-bc9a-0b81476ea5cf" />
+
+<img width="1512" alt="Screenshot 2025-07-02 at 11 56 41 AM" src="https://github.com/user-attachments/assets/cc3a2557-28be-4259-8269-96bc18bd3dcf" />
+
+<img width="1512" alt="Screenshot 2025-07-02 at 11 56 54 AM" src="https://github.com/user-attachments/assets/05a719b5-03c5-4f7c-b938-68a88f59f5a0" />
+
+<img width="1512" alt="Screenshot 2025-07-02 at 12 03 22 PM" src="https://github.com/user-attachments/assets/d78c18ff-5935-4497-9bef-2cfc2c9ef81a" />
+<img width="1512" alt="Screenshot 2025-07-02 at 12 04 33 PM" src="https://github.com/user-attachments/assets/123e15c0-2fbc-4069-a658-c34393d6b688" />
+
+---
+
+🙋‍♂️ Author
+Made with ❤️ by Dhanush Gundu
+📍 NIT Patna | B.Tech CSE | Web Developer & Cybersecurity Enthusiast
+GitHub • LinkedIn
+
