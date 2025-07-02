@@ -39,7 +39,7 @@ A full-stack web application that simulates technical mock interviews using AI. 
 
 
 <img width="1512" alt="Screenshot 2025-07-02 at 11 52 30 AM" src="https://github.com/user-attachments/assets/ac92e032-91ec-49ca-9517-21d3ffaec1f1" />
-
+ -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 <img width="1512" alt="Screenshot 2025-07-02 at 12 09 09 PM" src="https://github.com/user-attachments/assets/b5a17882-fc72-4513-adf4-a0b14bf376f7" />
 
 <img width="1465" alt="Screenshot 2025-07-02 at 11 54 51 AM" src="https://github.com/user-attachments/assets/1f6dd453-95e9-4c5a-9379-62a508733229" />
